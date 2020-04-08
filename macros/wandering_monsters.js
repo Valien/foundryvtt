@@ -18,7 +18,6 @@ if(result !== '') {
 // This requires you to have an existing Table built in Foundry VTT. Replace the table name below with your table name.
 // In this example, a roll between 17-20 will generate a roll from the Table. Tweak as needed!
 if (result >= 17) {
-  const table = game.tables.entities.find(t => t.name === 
-  "Wandering Monsters");
-  table.draw();
+  const table = game.tables.entities.find(t => t.name === "Wandering Monsters");
+  table.draw({}, {rollMode: "gmroll"});
 }
