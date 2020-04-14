@@ -1,0 +1,32 @@
+---
+# this playbook will call Jira and update the ticket
+- name: Post update to Jira
+  hosts: localhost
+  gather_facts: false
+  # the jira_user and jira_pass are passed into Tower via Extra Vars
+  vars:
+    jira_server: https://jira-demo.f8flabs.com
+    jira_user: 
+    jira_pass: 
+    jira_issue_key:
+    
+  tasks:
+  - name: Comment on issue
+    jira:
+      uri: '{{ jira_server }}'
+      username: '{{ jira_user }}'
+      password: '{{ jira_pass }}'
+      issue: '{{ jira_issue_key }}'
+      operation: comment
+      comment: "Your EC2 instance has been created and your web app is now accessible from this url -- http://{{ item.public_dns_name }}"
+    with_items: "{{ ec2.tagged_instances }}"
+
+# Transition an issue by target status
+#   - name: Close the issue
+#     jira:
+#       uri: '{{ jira_server }}'
+#       username: '{{ jira_user }}'
+#       password: '{{ jira_pass }}'
+#       issue: '{{ issue.meta.key }}'
+#       operation: transition
+#       status: Done

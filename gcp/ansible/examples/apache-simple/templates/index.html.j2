@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ansible: Automation for Everyone</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <style>
+body {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 200%;
+}
+footer {
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    font-size: 75%;
+}
+img {
+    margin: 0 auto;
+}
+  </style>
+</head>
+<body>
+<div class="container">
+    <img src="https://www.ansible.com/hubfs/2017_Images/BrandPage/Brand-Assets/Ansible_RH_AnsibleAutomation_RGB_RedBlack.png" width="75%"/>
+    <p>{{ apache_test_message }}</p><br/>
+    <img src="jsd_logo.png" width="75%"/><br/>
+    <img src="apache_logo.png" width="50%"/>
+    <p>{{ jira_test_message }}</p>
+    <p>Your stack name (from Jira) is: {{ ec2_stack_name }}</p>
+    <p>Your Jira ticket is {{ jira_issue_key }}
+</div>
+<footer>{{ inventory_hostname }}<br />Red Hat Ansible is awesome.</footer>
+</body>
+</html>

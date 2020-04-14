@@ -1,0 +1,9 @@
+# jira work
+- name: Comment on issue
+  jira:
+    uri: '{{ jira_server }}'
+    username: '{{ jira_user }}'
+    password: '{{ jira_pass }}'
+    issue: '{{ issue.meta.key }}'
+    operation: comment
+    comment: "The EC2 instance has been created: '{{ item.dns_name }}'"

@@ -1,0 +1,4 @@
+---
+- import_playbook: provision_ec2.yml
+- import_playbook: apache_setup.yml
+- import_playbook: jira.yml

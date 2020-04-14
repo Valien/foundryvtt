@@ -1,0 +1,34 @@
+---
+# tasks file for apache
+- name: Ensure httpd packages are present
+  yum:
+    name: "{{ httpd_packages }}"
+    state: present
+  notify: restart-apache-service
+
+- name: Ensure latest httpd.conf file is present
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+  notify: restart-apache-service
+
+- name: Ensure latest index.html file is present
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+
+- name: Copy over Apache logo
+  copy:
+    src: apache_logo.png
+    dest: /var/www/html/apache_logo.png
+
+- name: Copy over JSD logo
+  copy:
+    src: jsd_logo.png
+    dest: /var/www/html/jsd_logo.png 
+
+- name: Ensure httpd service is started and enabled
+  service:
+    name: httpd
+    state: started
+    enabled: yes
