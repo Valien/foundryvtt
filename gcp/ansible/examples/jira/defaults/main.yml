@@ -1,0 +1,5 @@
+---
+# default info for jira
+jira_server: https://jira-demo.f8flabs.com
+jira_user: allen
+jira_pass:

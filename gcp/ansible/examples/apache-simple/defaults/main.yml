@@ -1,0 +1,5 @@
+---
+# defaults file for apache
+apache_test_message: This is a test message of how cool ansible is.
+jira_test_message: This message brought to you in part by a JSD workflow.
+apache_webserver_port: 80

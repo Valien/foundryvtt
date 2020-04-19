@@ -1,0 +1,6 @@
+---
+- name: Ensure apache server is present and running with example home page
+  hosts: web
+  become: yes
+  roles:
+    - apache-simple
