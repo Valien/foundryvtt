@@ -1,0 +1,26 @@
+{
+    "name": "the-delian-tomb",
+    "title": "The Delian Tomb - An One-shot for lvl 1 PCs",
+    "description": "This is a level 1 adventure designed to be run in one session. This is based off Matt Colville's youtube series. Have fun!",
+    "author": "Valien",
+    "version": "0.1.0",
+    "minimumCoreVersion": "0.5.5",
+    "packs": [
+        {
+          "name": "monsters",
+          "label": "The Delian Tomb - Monsters",
+          "system": "dnd5e",
+          "path": "./packs/tdt-monsters.db",
+          "entity": "Actor",
+          "module": "the-delian-tomb"
+        },
+        {
+            "name": "journal",
+            "label": "The Delian Tomb - Adventure Info",
+            "system": "dnd5e",
+            "path": "./packs/tdt-journal.db",
+            "entity": "JournalEntry",
+            "module": "the-delian-tomb"
+          }
+    ]
+  }
