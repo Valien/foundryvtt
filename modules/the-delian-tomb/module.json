@@ -3,7 +3,7 @@
     "title": "The Delian Tomb - An One-shot for lvl 1 PCs",
     "description": "This is a level 1 adventure designed to be run in one session. This is based off Matt Colville's youtube series. Have fun!",
     "author": "Valien",
-    "version": "0.1.0",
+    "version": "0.0.1",
     "minimumCoreVersion": "0.5.5",
     "packs": [
         {
@@ -22,5 +22,9 @@
             "entity": "JournalEntry",
             "module": "the-delian-tomb"
           }
-    ]
+    ],
+    "manifest": "https://raw.githubusercontent.com/Valien/foundryvtt/master/modules/the-delian-tomb/module.json",
+    "url": "https://github.com/Valien/foundryvtt/tree/master/modules/the-delian-tomb",
+    "download": "https://github.com/Valien/foundryvtt/releases/download/v0.0.1/the-delian-tomb.zip"
+    
   }
