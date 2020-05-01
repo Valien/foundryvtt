@@ -14,3 +14,5 @@ More info on Foundry VTT can be found [here](https://foundryvtt.com). You can fi
 * *docker* - A docker container! Aw yeah. Foundry in Docker!
 
 Macros should be self-documented but in case you have questions ping me on the Foundry Discord (Valien) or here on GitHub!
+
+A lot of this stuff is a work in progress or missing content. So feel free to fork and play with anything and submitting a PR if you make a cool change/improvement/bug fix.

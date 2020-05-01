@@ -1,5 +1,7 @@
 FROM node:14
 ARG PATREON_KEY
+# Current version is - 0.5.5
+ARG FOUNDRY_VERSION
 
 LABEL maintainer="Allen Vailliencourt <chumpmonkey@gmail.com>"
 
@@ -7,7 +9,7 @@ RUN mkdir foundryvtt && \
     mkdir foundrydata && \
     chown node:node foundrydata && \
     cd foundryvtt && \
-    wget https://foundryvtt.s3-us-west-2.amazonaws.com/releases/$PATREON_KEY/foundryvtt-0.5.5.zip -O foundryvtt.zip && \
+    wget https://foundryvtt.s3-us-west-2.amazonaws.com/releases/$PATREON_KEY/foundryvtt-$FOUNDRY_VERSION.zip -O foundryvtt.zip && \
     unzip foundryvtt.zip
 
 USER node
