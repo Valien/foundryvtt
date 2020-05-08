@@ -1,3 +1,6 @@
+# misc exclusions
+ip_address.txt
+
 # Local .terraform directories
 **/.terraform/*
 

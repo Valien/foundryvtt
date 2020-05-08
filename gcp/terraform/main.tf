@@ -21,7 +21,6 @@ provider "google" {
   region  = var.region
   zone    = var.zone
 
-
 }
 
 # setting minimum versions for providers
@@ -68,6 +67,7 @@ resource "google_compute_firewall" "terraform-gcp" {
   # currently allows traffic from everyone to instances with http-server tag
   source_ranges = ["0.0.0.0/0"]
   target_tags = ["foundry-server"]
+
 }
 
 # creating key pair for each instance
@@ -86,9 +86,6 @@ resource "random_id" "app-server-id" {
 
 resource "google_compute_instance" "terraform-gcp" {
   name = "${var.instance_name}-terraform-gcp-${random_id.app-server-id.hex}"
-  #zone = var.zone
-  # or
-  #zone = "${var.region}-d"
   machine_type = var.machine_type
 
   boot_disk {
@@ -96,9 +93,6 @@ resource "google_compute_instance" "terraform-gcp" {
       image = var.image
     }
   }
-
-  # saves some time by running a startup script to patch system and/or install any software sans ansible
-  #metadata_startup_script = "sudo apt-get update"
 
   network_interface {
     subnetwork = google_compute_subnetwork.terraform-gcp.self_link
@@ -113,6 +107,11 @@ resource "google_compute_instance" "terraform-gcp" {
 
   tags = ["foundry-server"]
 }
+
+output "ip" {
+  value = "${google_compute_instance.terraform-gcp.network_interface.0.access_config.0.nat_ip}"
+}
+
 
 # set Route 53 DNS
 # resource "aws_route53_record" "terraform-dns" {

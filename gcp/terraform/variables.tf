@@ -48,9 +48,10 @@ variable "machine_type" {
  }
 
 # https://www.terraform.io/docs/providers/google/r/compute_instance.html#boot_disk
+# more images here -- https://cloud.google.com/compute/docs/images
 variable "image" {
   description = "type of OS image to use"
-  default     = "ubuntu-1910-eoan-v20200413a" # not working for some reason: "ubuntu-os-cloud/ubuntu-1910-lts"
+  default     = "cos-cloud/cos-stable" # using cos-stable as Foundry VTT is in a docker image
 }
 
 # @TODO:
