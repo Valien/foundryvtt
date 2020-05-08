@@ -53,6 +53,8 @@ resource "google_compute_subnetwork" "terraform-gcp" {
   ip_cidr_range = var.subnet_prefix
 }
 
+# @TODO: Split up rules - SSH from home IP only. Add Foundry rule - 30000, seperate http/https rule - 80/443
+# Remove default-allow-rdp, default-allow-ssh? (check network)
 resource "google_compute_firewall" "terraform-gcp" {
   name = "default-allow-ssh-http"
   network = google_compute_network.terraform-gcp.self_link
@@ -102,7 +104,7 @@ resource "google_compute_instance" "terraform-gcp" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${chomp(tls_private_key.terraform-gcp.public_key_openssh)} terraform"
+    ssh-keys = "foundry:${chomp(tls_private_key.terraform-gcp.public_key_openssh)} terraform"
   }
 
   tags = ["foundry-server"]
