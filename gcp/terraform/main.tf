@@ -6,9 +6,9 @@
 terraform {
   required_version = ">= 0.12"
   backend "remote" {
-    organization = var.organization
+    organization = "valien-personal"
     workspaces {
-      name = var.workspace
+      name = "foundryvtt"
     }
   }
 }
