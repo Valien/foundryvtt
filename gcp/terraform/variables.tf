@@ -2,6 +2,14 @@
 # Variables file for GCP Provisioning
 #########################################
 
+variable "organization" {
+  default = "valien-personal"
+}
+
+variable "workspace" {
+  default = "foundryvtt"
+}
+
 variable "prefix" {
   description = "Prefix for resources"
   default = "foundry-vtt"

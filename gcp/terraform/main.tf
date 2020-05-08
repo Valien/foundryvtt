@@ -3,22 +3,25 @@
 #########################################
 
 # storing terraform state on app.terraform.io
-# terraform {
-#   backend "remote" {
-#     organization = ""
-
-#     workspaces {
-#       name = ""
-#     }
-#   }
-# }
-
+terraform {
+  required_version = ">= 0.12"
+  backend "remote" {
+    organization = var.organization
+    workspaces {
+      name = var.workspace
+    }
+  }
+}
+  
 # selecting GCP region
 provider "google" {
   version = "~> 2.0"
-  region  = var.region
+
   project = var.project
+  region  = var.region
   zone    = var.zone
+
+
 }
 
 # setting minimum versions for providers
