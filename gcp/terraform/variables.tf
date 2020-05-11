@@ -54,17 +54,14 @@ variable "image" {
   default     = "cos-cloud/cos-stable" # using cos-stable as Foundry VTT is in a docker image
 }
 
-# @TODO:
-# the below zone id is for chumpmonkey.com TLD
-# variable "route53_zone_id" {
-#   description = "Zone ID for f8flabs.com "
-#   default = ""
-# }
-
- variable "dns_hostname" {
+variable "dns_hostname" {
   default = "foundry.chumpmonkey.com"
  }
 
 variable "ssh_user" {
-  default = "ubuntu"
+  default = "foundry"
+}
+
+variable "localip" {
+  default = ""
 }

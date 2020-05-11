@@ -25,3 +25,13 @@ Docker build/run instructions:
 Foundry Docs:
 * https://foundryvtt.com/article/installation/
 * https://foundryvtt.com/article/hosting/
+
+### Terraform
+
+* Currently setup with a remote backend at Terraform.io. Free to use for single users/projects
+* Create a `*.auto.tfvars` file with the following variables:
+
+  * `localip = <YOUR IP>`
+  * `project = <YOUR GCP PROJECT>`
+
+  Alternatively, you can put these variables in the Terraform UI and just update them as they change. This is a bit easier if you do not want to manage multiple logins, etc.

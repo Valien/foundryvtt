@@ -7,6 +7,7 @@ ip_address.txt
 # .tfstate files
 *.tfstate
 *.tfstate.*
+terraform.auto.tfvars
 
 # Crash log files
 crash.log
