@@ -40,7 +40,7 @@ provider "external" {
   version = "~> 1.2"
 }
 
-# enables OS login from project perspectice. 
+# enables OS login from project perspective. 
 resource "google_compute_project_metadata" "terraform-gcp" {
   metadata = {
     enable-oslogin = "TRUE"
@@ -92,18 +92,6 @@ resource "google_compute_firewall" "terraform-gcp-ssh" {
 
 }
 
-# creating key pair for each instance
-# do not use this for prod - https://www.terraform.io/docs/providers/tls/r/private_key.html
-# good for testing only
-# resource "tls_private_key" "terraform-gcp" {
-#   algorithm = "RSA"
-#   rsa_bits = "4096"
-# }
-
-# locals {
-#   private_key_filename = "${var.prefix}-ssh-key.pem"
-# }
-
 # create random ID for GCP instance
 resource "random_id" "app-server-id" {
   #prefix      = "${var.prefix}-terraform-gcp-"
@@ -126,7 +114,7 @@ resource "google_compute_instance" "terraform-gcp" {
 
     }
   }
-  # Handle using OS Login - https://cloud.google.com/compute/docs/instances/managing-instance-access
+  # Handled using OS Login - https://cloud.google.com/compute/docs/instances/managing-instance-access
   # metadata = {
   #   ssh-keys = "foundry:${chomp(tls_private_key.terraform-gcp.public_key_openssh)} terraform"
   # }
@@ -137,27 +125,3 @@ resource "google_compute_instance" "terraform-gcp" {
 output "ip" {
   value = "${google_compute_instance.terraform-gcp.network_interface.0.access_config.0.nat_ip}"
 }
-
-# copy ssh key to local .ssh folder
-# resource "null_resource" "terraform-gcp" {
-#   # copying generated key to ~/.ssh folder and changing permissions so the following local-exec can execute.
-#   provisioner "local-exec" {
-#     command = "echo '${tls_private_key.terraform-gcp.private_key_pem}' > ~/.ssh/${local.private_key_filename}" 
-#   }
-  
-#   provisioner "local-exec" {
-#     command = "chmod 0400 ~/.ssh/${local.private_key_filename}"
-#   }
-
-#   # on destroy will also remove the ssh key from ~/.ssh
-#   provisioner "local-exec" {
-#     when    = destroy
-#     command = "rm -f ~/.ssh/${local.private_key_filename}"
-#   }
-# }
-
-# obtain current external IP for SSH access
-# does not work with remote backend as that pulls the Terraform IP and not your home IP
-# data "external" "terraform-gcp" {
-#   program = ["bash", "-c", "curl 'https://ipinfo.io/json'"]
-# }

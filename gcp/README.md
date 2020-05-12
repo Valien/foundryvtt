@@ -35,3 +35,5 @@ Foundry Docs:
   * `project = <YOUR GCP PROJECT>`
 
   Alternatively, you can put these variables in the Terraform UI and just update them as they change. This is a bit easier if you do not want to manage multiple logins, etc.
+
+  If you use the app.terraform.io site for the remote backend you will need to put in the `GOOGLE_CREDENTIALS` as a secret so that your Terraform files can connect to the GCP API. Take your credentials .json file and remove all newlines and upload it as a environment variable on the app.terraform.io site.
