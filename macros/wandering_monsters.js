@@ -8,7 +8,7 @@ result = new Roll(`1d20`).roll().total;
 // create the message
 if(result !== '') {
   let chatData = {
-    sound = CONFIG.sounds.dice,
+    sound: CONFIG.sounds.dice,
     content: msgContent + result,
     whisper: game.users.entities.filter(u => u.isGM).map(u => u._id)
   };
