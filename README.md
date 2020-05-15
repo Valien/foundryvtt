@@ -12,6 +12,7 @@ More info on Foundry VTT can be found [here](https://foundryvtt.com). You can fi
 * *modules* - Has compendium packs, adventures, etc.
 * *gcp* - Project to build out FoundryVTT on Goggle Cloud Platform (GCP) **WIP!**
 * *docker* - A docker container! Aw yeah. Foundry in Docker!
+* *python* - Python utility scripts to download tokens, images, etc in bulk off the 'net
 
 Macros should be self-documented but in case you have questions ping me on the Foundry Discord (Valien) or here on GitHub!
 
